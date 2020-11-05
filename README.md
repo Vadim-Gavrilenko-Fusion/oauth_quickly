@@ -2,13 +2,13 @@
 
 ## OAuth - open authorisation
 
-client                     | Server                                       | OAuth prowider (Google)
----------------------------|----------------------------------------------|------------------------
-/auth/provider -->         |  /auth/google handler -->                    | Grant permission
-                           |  receive user details from provider (Google) | <-- redirect to custom route e.g. auth/provider/cb
-                           | loockup/ create user in own databadse        |
-  browser stores cookise   | <-- create unique cookie                     |
-             -->           | decode cookie & retrieve user information    |
+|client                     | Server                                       | OAuth prowider (Google)                                |
+|---------------------------|----------------------------------------------|--------------------------------------------------------|
+|/auth/provider -->         |  /auth/google handler -->                    | Grant permission                                       |
+|                           |  receive user details from provider (Google) | <-- redirect to custom route e.g. auth/provider/cb     |
+|                           | loockup/ create user in own databadse        |                                                        |
+|  browser stores cookise   | <-- create unique cookie                     |                                                        |
+|             -->           | decode cookie & retrieve user information    |                                                        |
 
 ## Passport install
 ```

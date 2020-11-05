@@ -16,7 +16,7 @@ npm i passport
 npm i passport-google-oauth
 npm i passport-google-oauth20
 ```
-## Create a routes middleware
+## Create a routes middleware: routes/index.js
 Google
 ```
 router.get('/google', passport.authenticate('google', {
@@ -27,20 +27,21 @@ router.get('/google', passport.authenticate('google', {
 }));
 ```
 
-## Create a file with options: 
+## Create a file with options: utils/passport.js
 ```
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const config = require('../config');
 
-passport.serializeUser((user, done) => {
-  done(null, user);
+passport.serializeUser((user, done)=> {
+  done(null, user.id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
-});
+passport.deserializeUser((id, done)=> {
+  User.findByld(id).then((user) => {
+done(null, user);
+
 
 module.exports = passport.use(new GoogleStrategy({
   // options for google strategy
